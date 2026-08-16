@@ -93,6 +93,8 @@
     { "path": "./packages/client/ui-settings-plugin-inventory" },
     { "path": "./packages/client/locale" },
     { "path": "./packages/client/web" },
-    { "path": "./apps/web" }
+    { "path": "./apps/web" },
+    // Personal publisher UI plugin (client side).
+    { "path": "./personal/plugins/publisher-ui" }
   ]
 }

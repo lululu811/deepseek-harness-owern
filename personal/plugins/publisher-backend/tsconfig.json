@@ -1,0 +1,20 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "lib/types"
+  },
+  "include": [
+    "src"
+  ],
+  "references": [
+    { "path": "../../../vendor/cosmokit" },
+    { "path": "../../../vendor/cordis" },
+    { "path": "../../../packages/core/tools" },
+    { "path": "../../../packages/core/agent" },
+    { "path": "../../../packages/core/session" },
+    { "path": "../../../packages/session/session-projection" },
+    { "path": "../../../packages/web/web" },
+    { "path": "../../../packages/runtime-diagnostics/invariants" }
+  ]
+}

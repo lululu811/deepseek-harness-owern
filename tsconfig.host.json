@@ -293,6 +293,10 @@
     { "path": "./packages/lsp/lsp" },
     { "path": "./packages/lsp/lsp-stdio" },
     { "path": "./packages/lsp/tool-lsp" },
-    { "path": "./apps/cli" }
+    { "path": "./apps/cli" },
+    // Personal publisher plugins (host side).
+    { "path": "./personal/plugins/publisher-pipeline" },
+    { "path": "./personal/plugins/publisher-mgmt" },
+    { "path": "./personal/plugins/publisher-backend" }
   ]
 }

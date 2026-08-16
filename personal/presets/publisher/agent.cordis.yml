@@ -1,0 +1,170 @@
+# Publisher preset — wraps the nightly report workflow + WeChat backend management.
+#
+# This preset loads 4 personal plugins on top of the standard tool set:
+# - @personal/publisher-pipeline: 10 pipeline tools (M2) + 2 projections
+# - @personal/publisher-mgmt: 4 management tools (2 MVP + 2 stubs for M3)
+# - @personal/publisher-backend: 4 WeChat stats tools (stubs for M3) + 1 projection
+# - @personal/publisher-ui: 3 UI panels (stubs for M7)
+#
+# The preset is user-installed to ~/.dsh/.agent-presets/publisher/ (not shipped upstream).
+
+# ── identity ────────────────────────────────────────────────────────────────
+
+- id: persona
+  name: '@deepseek-ai/dsh-persona'
+  config:
+    text: >-
+      You are a publisher agent powered by the {{model}} model, specializing in
+      orchestrating the nightly report workflow for WeChat public account publishing.
+      Your working directory is {{cwd}}. You manage a 10-step pipeline from raw data
+      collection through viewpoint rewriting, quality checking, and final publishing.
+      You can query pipeline status, list viewpoints, track WeChat article stats, and
+      make data-driven publish decisions based on QC verdicts.
+
+- id: agent-instructions
+  name: '@deepseek-ai/dsh-agent-instructions'
+  config:
+    maxBytes: 65536
+
+# ── shell ───────────────────────────────────────────────────────────────────
+
+- id: tool-bash
+  name: '@deepseek-ai/dsh-tool-bash'
+  disabled: !!js process.platform === 'win32'
+
+- id: tool-pwsh
+  name: '@deepseek-ai/dsh-tool-pwsh'
+  disabled: !!js process.platform !== 'win32'
+
+# ── filesystem ──────────────────────────────────────────────────────────────
+
+- id: tool-fs
+  name: '@deepseek-ai/dsh-tool-fs'
+
+- id: tool-fs-search
+  name: '@deepseek-ai/dsh-tool-fs-search'
+  config:
+    sampleOverCapGlobResults: false
+
+# ── background jobs ────────────────────────────────────────────────────────
+
+- id: tool-jobs
+  name: '@deepseek-ai/dsh-tool-jobs'
+
+# ── skills ──────────────────────────────────────────────────────────────────
+
+- id: skill-filesystem
+  name: '@deepseek-ai/dsh-skill-filesystem'
+
+- id: tool-skill
+  name: '@deepseek-ai/dsh-tool-skill'
+
+# ── goals ───────────────────────────────────────────────────────────────────
+
+- id: tool-goal
+  name: '@deepseek-ai/dsh-tool-goal'
+
+# ── compaction ──────────────────────────────────────────────────────────────
+
+- id: compaction
+  name: cordis:group
+  group: true
+  isolate:
+    compaction: true
+    toolResultPruner: true
+  config:
+    - id: compaction-basic
+      name: '@deepseek-ai/dsh-compaction-basic'
+
+    - id: command-compact
+      name: '@deepseek-ai/dsh-command-compact'
+
+    - id: tool-result-pruner
+      name: '@deepseek-ai/dsh-compaction-tool-result-pruner'
+      config:
+        thresholdChars: 8192
+        headChars: 4096
+        tailChars: 1024
+
+# ── delegation and workflows ────────────────────────────────────────────────
+
+- id: delegation
+  name: cordis:group
+  group: true
+  isolate:
+    workflowEngine: true
+  config:
+    - id: tool-subagent-control
+      name: '@deepseek-ai/dsh-tool-subagent-control'
+
+    - id: tool-subagent-list-agents
+      name: '@deepseek-ai/dsh-tool-subagent-control/list-agents'
+
+    - id: tool-subagent
+      name: '@deepseek-ai/dsh-tool-subagent'
+      config:
+        provider: spawn
+        toolName: subagent
+        backgroundMode: continuable
+
+    - id: tool-subagent-fork
+      name: '@deepseek-ai/dsh-tool-subagent'
+      config:
+        provider: fork
+        toolName: subagent_fork
+        backgroundMode: continuable
+
+    - id: workflow-worker-thread
+      name: '@deepseek-ai/dsh-workflow-worker-thread'
+      config:
+        provider: spawn
+
+    - id: tool-workflow
+      name: '@deepseek-ai/dsh-tool-workflow'
+
+# ── remaining model-facing rows ─────────────────────────────────────────────
+
+- id: tool-ask-user
+  name: '@deepseek-ai/dsh-tool-ask-user'
+
+- id: tool-todo
+  name: '@deepseek-ai/dsh-tool-todo'
+  config:
+    allowParallelInProgress: true
+
+- id: tool-web
+  name: '@deepseek-ai/dsh-tool-web'
+  config:
+    fetch: false
+    searchTimeoutMs: 60000
+
+# ── publisher plugins ───────────────────────────────────────────────────────
+
+# Publisher pipeline: 10 tools (pull_zsxq → send_feishu_poster) + 2 projections.
+# Tools are added in M2; projections are active now for state folding.
+- id: publisher-pipeline
+  name: '@personal/publisher-pipeline'
+  config:
+    nightlyRoot: '/Users/chenlei/001_project/小陈的每日夜报'
+
+# Publisher management: 4 tools (nightly_status, list_viewpoints, list_wechat_drafts, delete_wechat_draft).
+# 2 MVP tools are active now; 2 WeChat draft tools are stubs for M3.
+- id: publisher-mgmt
+  name: '@personal/publisher-mgmt'
+  config:
+    nightlyRoot: '/Users/chenlei/001_project/小陈的每日夜报'
+    wechatApiBase: 'https://api.weixin.qq.com/cgi-bin'
+
+# Publisher backend: 4 WeChat stats tools (all stubs for M3) + 1 projection.
+# Credentials are read from ~/.config/wechat/* at runtime.
+- id: publisher-backend
+  name: '@personal/publisher-backend'
+  config:
+    appId: ''  # Read from ~/.config/wechat/app_id at runtime
+    appSecret: ''  # Read from ~/.config/wechat/app_secret at runtime
+    tunnelHost: '43.155.210.74'
+    tunnelUser: 'root'
+
+# Publisher UI: 3 panels (StatusBoard, ArticleList, StatsChart) as stubs for M7.
+- id: publisher-ui
+  name: '@personal/publisher-ui'
