@@ -133,8 +133,11 @@ whenToUse: Use when orchestrating the nightly report pipeline, evaluating viewpo
      - 重新改写或人工润色
 8. render_wechat_html <date> fupeng   # 生成精排版 HTML
 9. publish_to_wechat <date> fupeng --remote  # 发布
-10. send_feishu_poster <date>         # 发飞书海报
+10. schedule_after 24h "24h 数据报告：调用 wechat_article_stats 检查今天发布的文章数据，与用户分享阅读量、分享量、在看量等关键指标，并对比历史基准给出解读"
+11. send_feishu_poster <date>         # 发飞书海报
 ```
+
+**自动调度说明**：步骤 10 注册一个 24h 后的定时任务。当任务触发时，agent 会自动调用 `wechat_article_stats` 获取数据，分析后向用户报告。这是 dsh schedule 系统的标准用法——agent 编排，工具执行。
 
 ### 多视角流程
 
