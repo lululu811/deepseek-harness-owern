@@ -27,7 +27,7 @@
   margin: 0 auto;
   padding: 4px 5px 4px 12px;
   border: 1px solid var(--dsw-alias-border-l1);
-  border-radius: 12px;
+  border-radius: 0;
   background: var(--dsw-specific-tip);
 }
 
@@ -77,7 +77,7 @@
   height: 26px;
   padding: 0 8px;
   border: 1px solid var(--dsw-alias-border-l2);
-  border-radius: 6px;
+  border-radius: 0;
   background: var(--dsw-alias-bg-base);
   font-size: 13px;
   line-height: 20px;
@@ -110,7 +110,7 @@
   height: 28px;
   padding: 0;
   border: none;
-  border-radius: 999px;
+  border-radius: 0;
   background: transparent;
   color: var(--dsw-alias-label-tertiary);
   cursor: pointer;

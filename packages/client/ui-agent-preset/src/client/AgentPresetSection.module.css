@@ -55,7 +55,7 @@
 
 .card {
   border: 1px solid var(--dsw-alias-border-l2);
-  border-radius: 12px;
+  border-radius: 0;
   display: flex;
   flex-direction: column;
   background: var(--dsw-alias-bg-layer-3);
@@ -84,7 +84,7 @@
 }
 
 .brokenBadge {
-  border-radius: 999px;
+  border-radius: 0;
   padding: 1px 8px;
   font-size: 11px;
   line-height: 17px;
@@ -116,7 +116,7 @@
   flex-direction: column;
   gap: 8px;
   padding: 14px 16px 12px;
-  border-radius: 12px 12px 0 0;
+  border-radius: 0;
 }
 
 .cardMain:disabled {
@@ -142,7 +142,7 @@
 
 .badge,
 .inUse {
-  border-radius: 999px;
+  border-radius: 0;
   padding: 1px 8px;
   font-size: 11px;
   line-height: 17px;
@@ -202,7 +202,7 @@
   position: relative;
   appearance: none;
   border: 0;
-  border-radius: 7px;
+  border-radius: 0;
   padding: 6px;
   background: none;
   color: var(--dsw-alias-label-tertiary);
@@ -233,7 +233,7 @@
   left: 50%;
   transform: translateX(-50%);
   padding: 3px 8px;
-  border-radius: 6px;
+  border-radius: 0;
   background: var(--dsw-alias-label-primary);
   color: var(--dsw-alias-bg-layer-3);
   font-size: 11px;
@@ -279,7 +279,7 @@
 
 .secondaryButton {
   border: none;
-  border-radius: 7px;
+  border-radius: 0;
   padding: 5px 8px;
   background: none;
   color: var(--dsw-alias-label-secondary);
@@ -314,7 +314,7 @@
   box-sizing: border-box;
   padding: 9px 12px;
   border: 1px solid var(--dsw-alias-border-l2);
-  border-radius: 10px;
+  border-radius: 0;
   font: inherit;
   font-size: 13px;
   background: var(--dsw-alias-bg-layer-1);
@@ -347,7 +347,7 @@
   max-height: min(52vh, 480px);
   overflow: auto;
   border: 1px solid var(--dsw-alias-border-l2);
-  border-radius: 10px;
+  border-radius: 0;
   background: var(--dsw-alias-bg-layer-2);
   color: var(--dsw-alias-label-secondary);
   font-family: var(--dsw-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
@@ -390,7 +390,7 @@
   gap: 6px;
   height: 44px;
   border: 1px dashed var(--dsw-alias-border-l3);
-  border-radius: 12px;
+  border-radius: 0;
   font: inherit;
   font-size: 14px;
   line-height: 22px;

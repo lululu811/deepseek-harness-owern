@@ -1,10 +1,9 @@
-// Hero chrome for the blank-draft phase of ConversationRoot: fish headline,
-// glow backdrop, and the workspace row. Pure presentation — the resident
+// Hero chrome for the blank-draft phase of ConversationRoot: pixel brand
+// mark, glow backdrop, and the workspace row. Pure presentation — the resident
 // composer is NOT rendered here (it keeps its own stable tree position in
 // ConversationRoot so the textarea survives the hero → composer flip); CSS
 // positions it over this shell's glow area during the hero phase.
 
-import { useId } from 'react'
 import type { ReactNode, RefObject } from 'react'
 import {
   FishLogo, IconChevronDownOutline14, IconFolderClose16, IconFolderOpen16,
@@ -65,34 +64,35 @@ export function WorkspaceChip({ buttonRef, label, menuOpen = false, onClick, t }
 }
 
 /**
- * The soft blue backdrop ellipse (figma 313:14109). Rendered by the hero
+ * Pixel particle cluster over the conversation-root grid backdrop: scattered
+ * brand-pink, honey-gold, and mint blocks around the composer seat (the full
+ * lattice lives on ConversationRoot's root background). Rendered by the hero
  * owner (ConversationRoot), not HeroShell, so it can center on the input
  * card; the owner's className supplies all positioning.
  * @param props.className - positioning class from the owner.
- * @returns the blurred-ellipse svg element.
+ * @returns the pixel-decor svg element.
  */
 export function HeroGlow({ className }: { className?: string | undefined }) {
-  // Stable filter id so multiple hero mounts do not collide in the DOM.
-  const glowFilterId = `empty-glow-${useId().replace(/:/g, '')}`
   return (
     <svg className={className} viewBox="0 0 1051 468" fill="none" aria-hidden="true">
-      <defs>
-        <filter
-          id={glowFilterId}
-          x="0"
-          y="0"
-          width="1051"
-          height="468"
-          filterUnits="userSpaceOnUse"
-          colorInterpolationFilters="sRGB"
-        >
-          <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-          <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur" />
-        </filter>
-      </defs>
-      <g filter={`url(#${glowFilterId})`}>
-        <ellipse cx="525.5" cy="234" rx="425.5" ry="134" fill="#6187D8" fillOpacity="0.08" />
+      <g fill="var(--dsw-alias-brand-primary)" opacity="0.5">
+        <rect x="96" y="150" width="8" height="8" />
+        <rect x="112" y="166" width="8" height="8" />
+        <rect x="80" y="174" width="8" height="8" />
+        <rect x="852" y="140" width="8" height="8" />
+        <rect x="868" y="156" width="8" height="8" />
+        <rect x="836" y="164" width="8" height="8" />
+        <rect x="880" y="186" width="8" height="8" />
+      </g>
+      <g fill="var(--dsw-static-amber-500)" opacity="0.5">
+        <rect x="470" y="118" width="8" height="8" />
+        <rect x="486" y="134" width="8" height="8" />
+        <rect x="566" y="122" width="8" height="8" />
+      </g>
+      <g fill="var(--dsw-static-green-500)" opacity="0.4">
+        <rect x="560" y="178" width="8" height="8" />
+        <rect x="576" y="194" width="8" height="8" />
+        <rect x="466" y="196" width="8" height="8" />
       </g>
     </svg>
   )
@@ -117,12 +117,9 @@ export function HeroShell({ t, children }: HeroShellProps) {
     <div className={css.root}>
       <div className={css.stack}>
         <div className={css.headline}>
-          {/* figma 34:10412: fish 34×25 leading the headline, gap 10. */}
-          <span className={css.fishHitbox}>
-            <FishLogo size={34} className={css.fish} />
-          </span>
+          {/* Studio kitten mark (FishLogo) leading the headline. */}
+          <FishLogo size={28} className={css.heroMark} />
           <span className={css.headlineText}>{t('hero.headline')}</span>
-          <span className={css.previewBadge}>{t('hero.preview')}</span>
         </div>
         <div className={css.body}>
           {/* The resident composer (ConversationRoot's root-owned scrollport;

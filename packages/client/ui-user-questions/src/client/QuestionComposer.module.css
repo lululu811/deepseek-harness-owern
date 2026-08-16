@@ -20,7 +20,7 @@
   max-height: min(60vh, 520px);
   padding: 0 0 10px;
   border: 1px solid var(--dsw-alias-border-l2-darkmode-thin);
-  border-radius: 20px;
+  border-radius: 0;
   background: var(--dsw-specific-input-major);
   box-shadow: var(--dsw-shadow-lv2);
   color: var(--dsw-alias-label-primary);
@@ -105,7 +105,7 @@
   height: 24px;
   padding: 0;
   border: none;
-  border-radius: 999px;
+  border-radius: 0;
   background: transparent;
   color: var(--dsw-alias-label-tertiary);
   cursor: pointer;
@@ -155,7 +155,7 @@
   flex-shrink: 0;
   padding: 8px 12px 8px 8px;
   border: 1px solid transparent;
-  border-radius: 12px;
+  border-radius: 0;
   background: transparent;
   color: inherit;
   text-align: left;
@@ -188,7 +188,7 @@
   /* (24px first-line box − 20px indicator) / 2: centers the indicator against
      the first text line under the row's flex-start alignment. */
   margin-top: 2px;
-  border-radius: 6px;
+  border-radius: 0;
   background: var(--dsw-alias-bg-overlay);
   color: var(--dsw-alias-label-secondary);
   font-size: 12px;
@@ -215,7 +215,7 @@
   width: 14px;
   height: 14px;
   border: 1px solid var(--dsw-alias-border-l4);
-  border-radius: 4px;
+  border-radius: 0;
   transition: background-color 120ms ease, border-color 120ms ease;
 }
 
@@ -254,7 +254,7 @@
 
 .badge {
   padding: 0 4px;
-  border-radius: 6px;
+  border-radius: 0;
   background: var(--dsw-specific-sidebar-nav-item-active-accent);
   color: var(--dsw-alias-button-info-fill);
   font-size: 11px;
@@ -284,7 +284,7 @@
   flex-shrink: 0;
   padding: 8px 12px 8px 8px;
   border: 1px solid transparent;
-  border-radius: 12px;
+  border-radius: 0;
   transition: background-color 120ms ease, border-color 120ms ease;
 }
 
@@ -329,7 +329,7 @@
   padding: 8px 12px;
   resize: none;
   border: 1px solid var(--dsw-alias-border-l2);
-  border-radius: 10px;
+  border-radius: 0;
   outline: none;
   background: var(--dsw-alias-bg-module-platform);
   color: var(--dsw-alias-label-primary);
@@ -368,7 +368,7 @@
 
 @media (max-width: 720px) {
   .card {
-    border-radius: 16px;
+    border-radius: 0;
   }
 
   .header {

@@ -83,7 +83,7 @@
   transform: translate(-50%, -50%);
   width: 12px;
   height: 32px;
-  border-radius: 10px;
+  border-radius: 0;
   box-sizing: border-box;
   background: var(--dsw-alias-button-floating-fill);
   border: 1px solid var(--dsw-alias-border-l2-darkmode-thin);

@@ -116,12 +116,34 @@
   min-width: 0;
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   overflow: hidden;
   padding: 0;
   border: none;
   background: transparent;
   color: inherit;
   cursor: pointer;
+}
+
+/* Brand kitten mark chip, same pixel grammar as the collapsed rail's mark. */
+.brandIcon {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--dsw-alias-brand-primary);
+  border-radius: 0;
+  color: var(--dsw-alias-brand-primary);
+  image-rendering: pixelated;
+}
+
+/* Studio brand text rides the pixel display voice. */
+.brandText {
+  font-family: var(--dsw-font-family-pixel, var(--dsw-font-family));
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  color: var(--dsw-alias-label-primary);
 }
 
 .iconButton {
@@ -132,7 +154,7 @@
   width: 28px;
   height: 28px;
   border: none;
-  border-radius: 50%;
+  border-radius: 0;
   padding: 0;
   background: transparent;
   cursor: pointer;
@@ -148,9 +170,10 @@
   height: 36px;
 }
 
-/* Rail logo swap: collapsed, the toggle rests as the whale mark (brand ink,
-   no hover circle) and hovering reveals the panel icon — the expand
-   affordance (figma sidebar-hover flow). Expanded it is a plain panel icon. */
+/* Rail mark swap: collapsed, the toggle rests as the studio pixel mark
+   (brand ink, no hover circle) and hovering reveals the panel icon — the
+   expand affordance (figma sidebar-hover flow). Expanded it is a plain
+   panel icon. */
 .collapsed .toggle .panelIcon {
   display: none;
 }
@@ -159,8 +182,20 @@
   display: inline;
 }
 
-.collapsed .toggle:hover .railFish {
+.collapsed .toggle:hover .railMark {
   display: none;
+}
+
+/* Studio kitten mark chip: 16px mark inside a 2px brand-pink frame;
+   pixelated rendering keeps the 16px viewBox crisp. */
+.railMark {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-radius: 0;
+  color: var(--dsw-alias-brand-primary);
+  image-rendering: pixelated;
 }
 
 /* Rail icons ride the primary ink (figma rail spec); expanded keeps the
@@ -182,7 +217,7 @@
   margin: 0 2px 8px;
   box-sizing: border-box;
   border: 1px solid var(--dsw-alias-border-l2);
-  border-radius: 12px;
+  border-radius: 0;
   background: var(--dsw-alias-button-elevated-fill);
   color: var(--dsw-alias-label-primary);
   font-size: 14px;

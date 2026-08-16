@@ -19,7 +19,7 @@
   width: 2px;
   height: 2px;
   margin: 0 8px;
-  border-radius: 1px;
+  border-radius: 0;
   background: var(--dsw-alias-label-caption);
 }
 
@@ -54,7 +54,7 @@
   overflow: auto;
   padding: 10px 16px 12px 12px;
   border: none;
-  border-radius: 8px;
+  border-radius: 0;
   background: var(--dsw-alias-markdown-code-block);
   color: var(--dsw-alias-label-tertiary);
   /* Figma 10:2482 code text: the form bodies inherit it from the scrollport. */

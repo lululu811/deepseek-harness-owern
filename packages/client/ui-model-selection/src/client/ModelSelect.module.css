@@ -16,7 +16,7 @@
   padding: 0 4px 0 8px;
   border: none;
   /* Rounded chip chrome, matching the sibling permission trigger. */
-  border-radius: 24px;
+  border-radius: 0;
   outline: none;
   background: transparent;
   color: var(--dsw-alias-label-secondary);
@@ -76,7 +76,7 @@
   /* Surface tokens match the Menu primitive card (ui-primitives
    * Menu.module.css) so every dropdown reads as the same material. */
   border: 1px solid var(--dsw-alias-border-inverted);
-  border-radius: 12px;
+  border-radius: 0;
   background: var(--dsw-specific-menu);
   box-shadow: var(--dsw-shadow-lv3);
   color: var(--dsw-alias-label-primary);
@@ -105,7 +105,7 @@
   gap: 8px;
   margin-bottom: 4px;
   padding: 7px 8px;
-  border-radius: 8px;
+  border-radius: 0;
   background: var(--dsw-alias-interactive-bg-hover-danger);
   color: var(--dsw-alias-state-error-primary);
   font-size: 12px;
@@ -157,7 +157,7 @@
   min-height: 38px;
   padding: 6px 8px;
   border: none;
-  border-radius: 10px;
+  border-radius: 0;
   outline: none;
   background: transparent;
   color: inherit;
@@ -225,7 +225,7 @@
   height: 40px;
   padding: 0 10px;
   border: none;
-  border-radius: 10px;
+  border-radius: 0;
   background: transparent;
   color: var(--dsw-alias-label-primary);
   font-size: 14px;

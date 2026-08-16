@@ -164,7 +164,7 @@
   );
   height: 8px;
   min-width: 2px;
-  border-radius: 1px;
+  border-radius: 0;
   background: var(--dsw-alias-label-secondary);
   opacity: 0.78;
 }

@@ -1,0 +1,43 @@
+/* 小陈的工作室 — global pixel chrome.
+ *
+ * A thin global layer on top of the token sheets: pixel focus rings
+ * (3px honey-gold, offset 2px per the Z 家军 spec 6.1), zero-radius
+ * interactive controls, pixel font application to headings/badges, and
+ * stepped motion so transitions read as crisp pixel frames. Feature
+ * components keep their own module styles; this sheet only normalizes
+ * shared affordances the whole app renders.
+ */
+
+/* Keyboard focus: every interactive element gets the honey-gold pixel ring. */
+:where(button, a, input, select, textarea, [role='button'], [role='menuitem'], [role='tab'], [role='switch'], [role='checkbox'], [role='radio'], summary):focus-visible {
+  outline: 3px solid var(--dsw-alias-state-warn-primary, #fbd38d);
+  outline-offset: 2px;
+}
+
+/* Pixel corners: interactive chrome and input surfaces go square. Circles
+   that are semantic dots (state dots, avatars) keep their 50% radius via
+   their own module rules — this layer targets only box-like controls. */
+:where(button, input, select, textarea, [role='button'], [role='menuitem'], [role='menuitemcheckbox'], [role='menuitemradio'], [role='tab'], [role='switch'], [role='combobox'], [role='listbox'], [role='dialog'], [role='menu'], [role='tooltip'], summary) {
+  border-radius: 0;
+}
+
+/* Pixel display voice: headings and brand text lead with the pixel-flavored
+   monospace stack so the retro terminal character reads through; body text
+   stays on the readable CJK-safe stack. */
+:where(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--dsw-font-family-pixel, var(--dsw-font-family));
+  letter-spacing: 0.02em;
+}
+
+/* Stepped motion: interactive transitions snap in 2-step increments,
+   preserving the pixel-frame feel without fighting reduced-motion. */
+:where(button, [role='button'], a) {
+  transition-duration: var(--ds-transition-duration-fast, 0.08s);
+  transition-timing-function: steps(2, jump-none);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(button, [role='button'], a) {
+    transition: none;
+  }
+}

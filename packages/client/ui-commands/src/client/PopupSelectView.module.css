@@ -25,7 +25,7 @@
   --dsh-scrollbar-thumb: var(--dsw-alias-scrollbar-bg-l2);
   --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2);
   border: 1px solid var(--dsw-alias-border-inverted);
-  border-radius: 12px;
+  border-radius: 0;
   background: var(--dsw-specific-menu);
   box-shadow: var(--dsw-shadow-lv3);
   outline: none;
@@ -43,7 +43,7 @@
   align-items: center;
   gap: 8px;
   padding: 6px 8px;
-  border-radius: 8px;
+  border-radius: 0;
   cursor: pointer;
   font-size: 13px;
   color: var(--dsw-alias-label-primary);
@@ -85,7 +85,7 @@
   margin: 2px 2px 4px;
   padding: 6px 8px;
   border: 1px solid var(--dsw-alias-border-inverted);
-  border-radius: 8px;
+  border-radius: 0;
   background: transparent;
   font-size: 13px;
   color: var(--dsw-alias-label-primary);
@@ -110,7 +110,7 @@
 .retry {
   padding: 2px 8px;
   border: 1px solid var(--dsw-alias-border-inverted);
-  border-radius: 6px;
+  border-radius: 0;
   background: transparent;
   font-size: 12px;
   color: var(--dsw-alias-label-primary);
