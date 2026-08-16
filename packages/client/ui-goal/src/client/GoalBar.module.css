@@ -28,7 +28,12 @@
   padding: 4px 5px 4px 12px;
   border: 1px solid var(--dsw-alias-border-l1);
   border-radius: 0;
-  background: var(--dsw-specific-tip);
+  /* Same pixel graph-paper grid as ConversationRoot .root so the lattice
+     continues under the goal bar instead of stopping at its edge. */
+  background:
+    color-mix(in srgb, var(--dsw-specific-tip) 90%, transparent),
+    repeating-linear-gradient(color-mix(in srgb, var(--dsw-alias-border-l1) 45%, transparent) 0 1px, transparent 1px 16px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--dsw-alias-border-l1) 45%, transparent) 0 1px, transparent 1px 16px);
 }
 
 .goalGlyph {

@@ -31,7 +31,12 @@
   width: 100%;
   padding: 2px 0;
   border-radius: 0;
-  background: var(--dsw-specific-tip);
+  /* Same pixel graph-paper grid as ConversationRoot .root so the lattice
+     continues under the queue panel instead of stopping at its edge. */
+  background:
+    color-mix(in srgb, var(--dsw-specific-tip) 90%, transparent),
+    repeating-linear-gradient(color-mix(in srgb, var(--dsw-alias-border-l1) 45%, transparent) 0 1px, transparent 1px 16px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--dsw-alias-border-l1) 45%, transparent) 0 1px, transparent 1px 16px);
   --dsh-scrollbar-thumb: var(--dsw-alias-scrollbar-bg-l2);
   --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2);
 }

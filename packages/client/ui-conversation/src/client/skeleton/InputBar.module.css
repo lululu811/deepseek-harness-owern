@@ -68,7 +68,12 @@
      l2-darkmode-thin pair. Fill: the input surface token (elevated in dark). */
   border: 1px solid var(--dsw-alias-border-l2-darkmode-thin);
   border-radius: 0;
-  background: var(--dsw-specific-input-major);
+  /* Same pixel graph-paper grid as ConversationRoot .root so the lattice
+     continues under the composer card instead of stopping at its edge. */
+  background:
+    color-mix(in srgb, var(--dsw-specific-input-major) 90%, transparent),
+    repeating-linear-gradient(color-mix(in srgb, var(--dsw-alias-border-l1) 45%, transparent) 0 1px, transparent 1px 16px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--dsw-alias-border-l1) 45%, transparent) 0 1px, transparent 1px 16px);
   box-shadow: var(--dsw-shadow-lv2);
   font-size: 16px;
   line-height: 24px;

@@ -19,7 +19,12 @@
   max-width: var(--dsh-chat-content-width);
   border: 1px solid var(--dsw-alias-state-warn-secondary);
   border-radius: 0;
-  background: var(--dsw-specific-input-major);
+  /* Same pixel graph-paper grid as ConversationRoot .root so the lattice
+     continues under the approval card instead of stopping at its edge. */
+  background:
+    var(--dsw-specific-input-major),
+    repeating-linear-gradient(color-mix(in srgb, var(--dsw-alias-border-l1) 45%, transparent) 0 1px, transparent 1px 16px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--dsw-alias-border-l1) 45%, transparent) 0 1px, transparent 1px 16px);
   box-shadow: var(--dsw-shadow-lv2);
   /* Elevated surface in dark, same as the menus: `.body` inside scrolls once
      the justification or command passes the cap, so the thumb takes the l2

@@ -26,7 +26,12 @@
   max-height: min(60vh, 520px);
   border: 1px solid var(--dsw-alias-state-warn-secondary);
   border-radius: 0;
-  background: var(--dsw-specific-input-major);
+  /* Same pixel graph-paper grid as ConversationRoot .root so the lattice
+     continues under the plan review card. */
+  background:
+    var(--dsw-specific-input-major),
+    repeating-linear-gradient(color-mix(in srgb, var(--dsw-alias-border-l1) 45%, transparent) 0 1px, transparent 1px 16px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--dsw-alias-border-l1) 45%, transparent) 0 1px, transparent 1px 16px);
   box-shadow: var(--dsw-shadow-lv2);
   color: var(--dsw-alias-label-primary);
   /* Elevated surface in dark: the plan body inside scrolls once the card hits
