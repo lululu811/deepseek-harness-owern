@@ -58,7 +58,7 @@
 }
 
 .callRow {
-  border-radius: 6px;
+  border-radius: 0;
 }
 
 /* Selection still sets data-selected for details linkage; no outline —
@@ -133,7 +133,7 @@
 
 .older button {
   border: none;
-  border-radius: 14px;
+  border-radius: 0;
   padding: 4px 12px;
   font-size: 12px;
   color: var(--dsw-alias-label-secondary);
@@ -179,7 +179,7 @@
   margin-top: -34px;
   padding: 0;
   border: 1px solid var(--dsw-alias-border-l2);
-  border-radius: 100px;
+  border-radius: 0;
   color: var(--dsw-alias-label-primary);
   background: var(--dsw-alias-button-floating-fill);
   box-shadow: var(--dsw-shadow-lv2);

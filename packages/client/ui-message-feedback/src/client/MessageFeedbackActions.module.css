@@ -10,7 +10,7 @@
   height: 28px;
   padding: 6px;
   border: none;
-  border-radius: 28px;
+  border-radius: 0;
   background: transparent;
   color: var(--dsw-alias-label-tertiary);
   cursor: pointer;
@@ -37,7 +37,7 @@
   overflow: hidden;
   padding: 0 8px;
   border: none;
-  border-radius: 14px;
+  border-radius: 0;
   background: transparent;
   color: var(--dsw-alias-label-tertiary);
   font-size: 13px;
@@ -62,7 +62,7 @@
   width: 260px;
   padding: 6px 8px;
   border: 1px solid var(--dsw-alias-border-secondary);
-  border-radius: 8px;
+  border-radius: 0;
   background: var(--dsw-alias-bg-primary);
   color: var(--dsw-alias-label-primary);
   font: inherit;
@@ -75,7 +75,7 @@
   height: 28px;
   padding: 0 10px;
   border: none;
-  border-radius: 14px;
+  border-radius: 0;
   font-size: 13px;
   cursor: pointer;
 }

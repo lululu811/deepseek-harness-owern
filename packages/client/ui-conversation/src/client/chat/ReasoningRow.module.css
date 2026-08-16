@@ -20,7 +20,7 @@
     color-mix(in srgb, var(--dsw-alias-bg-base) 60%, transparent) 55%,
     transparent 100%
   );
-  animation: dsh-reasoning-row-sweep 2.6s ease-out infinite;
+  animation: dsh-reasoning-row-sweep 2.6s steps(8, jump-none) infinite;
   pointer-events: none;
 }
 
@@ -46,7 +46,7 @@
   width: 2px;
   height: 2px;
   margin: 0 8px;
-  border-radius: 1px;
+  border-radius: 0;
   background: var(--dsw-alias-label-caption);
 }
 

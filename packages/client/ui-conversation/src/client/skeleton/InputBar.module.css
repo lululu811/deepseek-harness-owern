@@ -40,7 +40,7 @@
   max-width: var(--dsh-composer-card-max-width);
   margin-bottom: 6px;
   padding: 4px 8px;
-  border-radius: 8px;
+  border-radius: 0;
   background: var(--dsw-alias-interactive-bg-hover);
   color: var(--dsw-alias-label-secondary);
   font-size: 12px;
@@ -67,8 +67,13 @@
      the input border is one notch weaker than buttons) — exactly the
      l2-darkmode-thin pair. Fill: the input surface token (elevated in dark). */
   border: 1px solid var(--dsw-alias-border-l2-darkmode-thin);
-  border-radius: 22px;
-  background: var(--dsw-specific-input-major);
+  border-radius: 0;
+  /* Same pixel graph-paper grid as ConversationRoot .root so the lattice
+     continues under the composer card instead of stopping at its edge. */
+  background:
+    color-mix(in srgb, var(--dsw-specific-input-major) 90%, transparent),
+    repeating-linear-gradient(color-mix(in srgb, var(--dsw-alias-border-l1) 45%, transparent) 0 1px, transparent 1px 16px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--dsw-alias-border-l1) 45%, transparent) 0 1px, transparent 1px 16px);
   box-shadow: var(--dsw-shadow-lv2);
   font-size: 16px;
   line-height: 24px;
@@ -96,7 +101,7 @@
   content: '';
   position: absolute;
   inset: -1px;
-  border-radius: 22px;
+  border-radius: 0;
   background: var(--dsw-alias-border-l4);
   transition: background-color 100ms ease;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='none' rx='22' ry='22' stroke='black' stroke-width='2' stroke-dasharray='4 4'/%3E%3C/svg%3E");
@@ -176,7 +181,7 @@
 }
 
 .hlSegment {
-  border-radius: 4px;
+  border-radius: 0;
   background-color: transparent;
   color: transparent;
 }
@@ -323,7 +328,7 @@
   gap: 12px;
 }
 
-/* Attach circle (figma + control): 28px, selector fill, primary glyph. */
+/* Attach control (figma + control): 28px square, selector fill, primary glyph. */
 .add {
   display: grid;
   place-items: center;
@@ -331,7 +336,7 @@
   width: 28px;
   height: 28px;
   border: none;
-  border-radius: 999px;
+  border-radius: 0;
   background: var(--dsw-specific-selector);
   color: var(--dsw-alias-label-primary);
   cursor: pointer;
@@ -353,7 +358,7 @@
   height: 28px;
   padding: 0 20px 0 8px;
   border: none;
-  border-radius: 8px;
+  border-radius: 0;
   outline: none;
   background-color: transparent;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 4.5L6 7.5L9 4.5' stroke='%2381858C' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -378,8 +383,7 @@
   cursor: default;
 }
 
-/* Primary send (figma IconButton 34:10465): 34px circle, #3964FE light /
-   #679EFE dark — the info-fill pair (500→400), NOT button-primary (ink);
+/* Primary send (figma IconButton 34:10465): 34px square, info-fill (500→400),
    white glyph; empty text = 0.4 opacity. */
 .primary {
   display: grid;
@@ -388,13 +392,12 @@
   width: 34px;
   height: 34px;
   border: none;
-  border-radius: 999px;
+  border-radius: 0;
   background: var(--dsw-alias-button-info-fill);
-  /* Static white, not the foreground token: the arrow stays white on the blue
-     fill in both themes (design 34:10465). */
-  color: #fff;
+  /* The arrow stays white on the pink fill in both themes (design 34:10465). */
+  color: var(--dsw-alias-label-primary-foreground);
   cursor: pointer;
-  transition: background-color 100ms ease;
+  transition: background-color var(--ds-transition-duration-fast) steps(2, jump-none);
   /* Opts out of the row's 2px downward shift (.row top pad): the send circle
      keeps its original seat while the smaller chips sit lower. Transform, not
      margin, so flex centering math is untouched. */
@@ -414,7 +417,7 @@
   margin-left: 8px;
   padding: 1px 8px;
   border: 1px solid currentColor;
-  border-radius: 4px;
+  border-radius: 0;
   background: transparent;
   color: inherit;
   font-size: 12px;
@@ -443,7 +446,7 @@
    with an ellipsis; the full name rides the title tooltip. */
 .chip {
   position: relative;
-  border-radius: 6px;
+  border-radius: 0;
   background: rgba(97, 135, 216, 0.22);
 }
 

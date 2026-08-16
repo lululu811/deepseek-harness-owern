@@ -68,7 +68,7 @@
   flex: none;
   width: 2px;
   height: 2px;
-  border-radius: 1px;
+  border-radius: 0;
   margin: 0 8px;
   background: var(--dsw-alias-label-caption);
 }
@@ -148,7 +148,7 @@
   margin: 4px 0 2px 4px;
   padding: 2px 8px;
   border: 1px solid var(--dsw-alias-border-l2);
-  border-radius: 999px;
+  border-radius: 0;
   /* Base background, not bg-overlay: the overlay token is a raised dark
      surface and reads too heavy for a quiet in-flow affordance. */
   background: var(--dsw-alias-bg-base);
@@ -188,7 +188,7 @@
   flex-direction: column;
   margin: 4px 0 4px 4px;
   border: 1px solid var(--dsw-alias-border-l1);
-  border-radius: 12px;
+  border-radius: 0;
   background: var(--dsw-alias-markdown-code-block);
   font: var(--dsw-font-markdown-code-block-small);
 }
@@ -211,7 +211,7 @@
 .ioSection::-webkit-scrollbar-thumb {
   border: 2px solid transparent;
   background-clip: padding-box;
-  border-radius: 6px;
+  border-radius: 0;
 }
 
 /* Track end-margins keep the thumb's travel out of the rounded corners. */

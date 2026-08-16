@@ -17,7 +17,7 @@
   box-sizing: border-box;
   width: 244px;
   padding: 12px 16px;
-  border-radius: 12px;
+  border-radius: 0;
   background: var(--dsw-hovercard-bg);
   box-shadow: var(--dsw-shadow-lv3);
 }

@@ -34,7 +34,7 @@
   padding: 0 7px;
   gap: 4px;
   border: 0;
-  border-radius: 3px;
+  border-radius: 0;
   color: var(--dsw-alias-label-tertiary);
   background: transparent;
   cursor: pointer;
@@ -110,7 +110,7 @@
   flex: none;
   width: 20px;
   height: 10px;
-  border-radius: 5px;
+  border-radius: 0;
   background: var(--dsw-alias-border-l2);
   transition: background-color 120ms var(--ds-ease-in-out);
 }
@@ -121,9 +121,9 @@
   left: 2px;
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  border-radius: 0;
   background: var(--dsw-alias-bg-layer-1);
-  transition: transform 120ms var(--ds-ease-in-out);
+  transition: transform 120ms steps(2, jump-none);
 }
 
 .controlTrack[data-on='true'] {
@@ -142,7 +142,7 @@
   padding: 0 5px;
   gap: 4px;
   border: 0;
-  border-radius: 3px;
+  border-radius: 0;
   color: var(--dsw-alias-label-tertiary);
   background: transparent;
   cursor: pointer;
@@ -174,7 +174,7 @@
   padding: 0 6px;
   gap: 4px;
   border: 1px solid var(--dsw-alias-border-l2);
-  border-radius: 4px;
+  border-radius: 0;
   color: var(--dsw-alias-label-caption);
   background: var(--dsw-alias-bg-layer-2);
 }

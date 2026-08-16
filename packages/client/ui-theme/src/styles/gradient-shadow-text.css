@@ -1,12 +1,13 @@
 body {
   --dsw-linear-gradient-think: linear-gradient(180deg, #fff 20.19%, rgba(255, 255, 255, 0) 100%);
   --dsw-linear-think-select: linear-gradient(180deg, #f5f6f7 20.19%, rgba(245, 246, 247, 0) 100%);
-  /* 阴影 */
-  --dsw-shadow-lv1: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
-  --dsw-shadow-lv1-blur: 0 4px 12px 0 rgba(0, 0, 0, 0.02);
-  --dsw-shadow-lv2: 0 4px 12px 0 rgba(0, 0, 0, 0.02), 0 2px 8px 0 rgba(0, 0, 0, 0.04);
+  /* 像素硬阴影 (Z 家军 pixel grammar): 内凹双边 + 硬位移投影，无模糊。 */
+  --dsw-shadow-lv1: inset -2px -2px 0 0 rgba(244, 212, 228, 0.55), inset 2px 2px 0 0 rgba(255, 255, 255, 0.8), 2px 2px 0 0 rgba(107, 83, 110, 0.12);
+  --dsw-shadow-lv1-blur: inset -2px -2px 0 0 rgba(244, 212, 228, 0.4), 2px 2px 0 0 rgba(107, 83, 110, 0.1);
+  --dsw-shadow-lv2: inset -3px -3px 0 0 rgba(244, 212, 228, 0.6), inset 3px 3px 0 0 rgba(255, 255, 255, 0.85), 3px 3px 0 0 rgba(107, 83, 110, 0.14);
   --dsw-shadow-lv3:
-    0 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 4px 0 rgba(0, 0, 0, 0.02), 0 12px 32px 0 rgba(0, 0, 0, 0.08);
+    inset -3px -3px 0 0 rgba(244, 212, 228, 0.6), inset 3px 3px 0 0 rgba(255, 255, 255, 0.85),
+    0 0 0 1px rgba(244, 212, 228, 0.35), 5px 5px 0 0 rgba(107, 83, 110, 0.16);
   /* blur filter */
   --dsw-mask-blur: blur(2px);
 }
@@ -14,6 +15,13 @@ body {
 body[data-ds-dark-theme] {
   --dsw-linear-gradient-think: linear-gradient(180deg, #151517 20.19%, rgba(21, 21, 23, 0) 100%);
   --dsw-linear-think-select: linear-gradient(180deg, #232325 20.19%, rgba(35, 35, 37, 0) 100%);
+  /* 暗色像素硬阴影: 内凹用深夜紫黑 + 紫边框高光。 */
+  --dsw-shadow-lv1: inset -2px -2px 0 0 rgba(10, 6, 22, 0.6), inset 2px 2px 0 0 rgba(90, 66, 128, 0.5), 2px 2px 0 0 rgba(10, 6, 22, 0.5);
+  --dsw-shadow-lv1-blur: inset -2px -2px 0 0 rgba(10, 6, 22, 0.5), 2px 2px 0 0 rgba(10, 6, 22, 0.4);
+  --dsw-shadow-lv2: inset -3px -3px 0 0 rgba(10, 6, 22, 0.7), inset 3px 3px 0 0 rgba(90, 66, 128, 0.55), 3px 3px 0 0 rgba(10, 6, 22, 0.6);
+  --dsw-shadow-lv3:
+    inset -3px -3px 0 0 rgba(10, 6, 22, 0.7), inset 3px 3px 0 0 rgba(90, 66, 128, 0.55),
+    0 0 0 1px rgba(90, 66, 128, 0.5), 5px 5px 0 0 rgba(10, 6, 22, 0.7);
 }
 
 /* ---------- 字体 ---------- */

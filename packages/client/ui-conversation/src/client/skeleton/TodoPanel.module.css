@@ -25,8 +25,13 @@
     var(--dsh-composer-dock-inset)
   );
   border: 1px solid var(--dsw-alias-border-l1);
-  border-radius: 12px;
-  background: var(--dsw-specific-tip);
+  border-radius: 0;
+  /* Same pixel graph-paper grid as ConversationRoot .root so the lattice
+     continues under the todo strip instead of stopping at its edge. */
+  background:
+    color-mix(in srgb, var(--dsw-specific-tip) 90%, transparent),
+    repeating-linear-gradient(color-mix(in srgb, var(--dsw-alias-border-l1) 45%, transparent) 0 1px, transparent 1px 16px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--dsw-alias-border-l1) 45%, transparent) 0 1px, transparent 1px 16px);
   /* Elevated surface: `--dsw-specific-tip` is the same dark rung as the menu
      surface, and `.list` scrolls inside this card, so the thumb takes the l2
      elevation tokens. Declared here because the elevation belongs to the
